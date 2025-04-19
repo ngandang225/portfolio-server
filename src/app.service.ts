@@ -31,7 +31,7 @@ export class AppService {
 
     try {
       await transporter.sendMail(mailOptions);
-      return { message: 'Message sent successfully.' };
+      return { message: 'Message sent successfully.', success: true };
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error('Sending error:', error.message);
