@@ -31,14 +31,14 @@ export class AppService {
 
     try {
       await transporter.sendMail(mailOptions);
-      return { message: 'Email sent successfully' };
+      return { message: 'Message sent successfully.' };
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.error('Email send error:', error.message);
-        throw new InternalServerErrorException('Failed to send email');
+        console.error('Sending error:', error.message);
+        throw new InternalServerErrorException('Failed to send the message.');
       }
       console.error('Unknown error:', error);
-      throw new InternalServerErrorException('Unknown error occurred while sending email');
+      throw new InternalServerErrorException('An unexpected error occurred while sending the message.');
     }
   }
 }
